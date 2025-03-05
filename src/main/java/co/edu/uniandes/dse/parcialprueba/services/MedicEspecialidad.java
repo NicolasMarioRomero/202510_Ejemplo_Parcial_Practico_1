@@ -8,7 +8,9 @@ import co.edu.uniandes.dse.parcialprueba.entities.MedicEntity;
 import co.edu.uniandes.dse.parcialprueba.repositories.EspecialidadRepository;
 import co.edu.uniandes.dse.parcialprueba.repositories.MedicRepository;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class MedicEspecialidad {
     @Autowired
