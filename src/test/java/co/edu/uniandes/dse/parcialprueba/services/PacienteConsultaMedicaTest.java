@@ -26,10 +26,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 public class PacienteConsultaMedicaTest {
     @Autowired
-    private ConsultaMedicaService consultaMedicaService;
-
-    @Autowired
-    private PacienteEntity pacienteEntity;
+    private PacienteConsultaMedicaService pacienteConsultaMedicaService;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -65,6 +62,9 @@ public class PacienteConsultaMedicaTest {
 
     @Test
     void testAddConsulta() throws IllegalOperationException, EntityNotFoundException {
-
+        PacienteEntity paciente = pacientes.get(0);
+        ConsultaMedicaEntity consultaMedicaEntity = consultas.get(0);
+        pacienteConsultaMedicaService.addConsulta(paciente.getId(), consultaMedicaEntity.getId());
+        assertTrue(paciente.getConsultaMedica().contains(consultaMedicaEntity));
     }
 }
